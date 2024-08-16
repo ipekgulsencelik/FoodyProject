@@ -17,9 +17,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.4" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Foody.BusinessLayer\Foody.BusinessLayer.csproj" />
     <ProjectReference Include="..\Foody.DataAccessLayer\Foody.DataAccessLayer.csproj" />
     <ProjectReference Include="..\Foody.EntityLayer\Foody.EntityLayer.csproj" />
   </ItemGroup>
