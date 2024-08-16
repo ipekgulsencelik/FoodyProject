@@ -1,7 +1,7 @@
-﻿@model List<Foody.EntityLayer.Concrete.Category>
+﻿@model List<Product>
 
 @{
-    ViewData["Title"] = "CategoryList";
+    ViewData["Title"] = "ProductList";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
@@ -39,9 +39,11 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
+                                    <th scope="col">Product ID</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Stock</th>
+                                    <th scope="col">Price</th>
                                     <th scope="col">Category ID</th>
-                                    <th scope="col">Category Name</th>
-                                    <th scope="col">Status</th>
                                     <th scope="col">Delete</th>
                                     <th scope="col">Update</th>
                                 </tr>
@@ -50,17 +52,18 @@
                                 @foreach (var item in Model)
                                 {
                                     <tr>
+                                        <td>@item.ProductID</td>
+                                        <td>@item.ProductName</td>
+                                        <td>@item.Stock</td>
+                                        <td>@item.Price</td>
                                         <td>@item.CategoryID</td>
-                                        <td>@item.CategoryName</td>
-                                        <td>@item.CategoryStatus</td>
-                                        <td><a href="/Categories/DeleteCategory/@item.CategoryID" class="btn btn-danger">Delete</a></td>
-                                        <td><a href="/Categories/UpdateCategory/@item.CategoryID" class="btn btn-success">Update</a></td>
+                                        <td><a href="/Products/DeleteProduct/@item.ProductID" class="btn btn-danger">Delete</a></td>
+                                        <td><a href="/Products/UpdateProduct/@item.ProductID" class="btn btn-success">Update</a></td>
                                     </tr>
                                 }
-
                             </tbody>
                         </table>
-                        <a href="/Categories/CreateCategory/" class="btn btn-primary">Add New Category</a>
+                        <a href="/Products/CreateProduct/" class="btn btn-primary">Add New Product</a>
                     </div>
                 </div>
             </div>

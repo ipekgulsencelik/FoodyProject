@@ -11,6 +11,10 @@ builder.Services.AddDbContext<FoodyContext>();
 builder.Services.AddScoped<ICategoryDAL, CategoryDAL>();
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
 
+builder.Services.AddScoped<IProductDAL, ProductDAL>();
+builder.Services.AddScoped<IProductService, ProductManager>();
+
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

@@ -1,14 +1,15 @@
 ﻿using Foody.BusinessLayer.Abstract;
 using Foody.DataAccessLayer.Abstract;
+using Foody.DataAccessLayer.EntityFramework;
 using Foody.EntityLayer.Concrete;
 
 namespace Foody.BusinessLayer.Concrete
 {
-    public class ProductManager : IAboutService
+    public class ProductManager : IProductService
     {
-        private readonly IAboutDAL _productDAL;
+        private readonly IProductDAL _productDAL;
 
-        public ProductManager(IAboutDAL productDAL)
+        public ProductManager(IProductDAL productDAL)
         {
             _productDAL = productDAL;
         }
@@ -18,22 +19,27 @@ namespace Foody.BusinessLayer.Concrete
             _productDAL.Delete(id);
         }
 
-        public List<About> TGetAll()
+        public List<Product> TGetAll()
         {
             return _productDAL.GetAll();
         }
 
-        public About TGetByID(int id)
+        public Product TGetByID(int id)
         {
             return _productDAL.GetByID(id);
         }
 
-        public void TInsert(About entity)
+        public void TInsert(Product entity)
         {
             _productDAL.Insert(entity);
         }
 
-        public void TUpdate(About entity)
+        public List<Product> TProductListWithCategory()
+        {
+            return _productDAL.ProductListWithCategory();
+        }
+
+        public void TUpdate(Product entity)
         {
             _productDAL.Update(entity);
         }
