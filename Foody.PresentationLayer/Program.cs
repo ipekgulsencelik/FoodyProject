@@ -3,6 +3,7 @@ using Foody.BusinessLayer.Concrete;
 using Foody.DataAccessLayer.Abstract;
 using Foody.DataAccessLayer.Context;
 using Foody.DataAccessLayer.EntityFramework;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,11 +15,23 @@ builder.Services.AddScoped<ICategoryService, CategoryManager>();
 builder.Services.AddScoped<IProductDAL, ProductDAL>();
 builder.Services.AddScoped<IProductService, ProductManager>();
 
+builder.Services.AddScoped<ISliderDAL, SliderDAL>();
+builder.Services.AddScoped<ISliderService, SliderManager>();
+
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+app.UseStatusCodePages(async x =>
+{
+    if (x.HttpContext.Response.StatusCode == 404)
+    {
+        x.HttpContext.Response.Redirect("/ErrorPages/ErrorPage404/");
+    };
+});
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
