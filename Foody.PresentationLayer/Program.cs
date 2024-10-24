@@ -21,6 +21,9 @@ builder.Services.AddScoped<ISliderService, SliderManager>();
 builder.Services.AddScoped<IAboutDAL, AboutDAL>();
 builder.Services.AddScoped<IAboutService, AboutManager>();
 
+builder.Services.AddScoped<IAboutItemDAL, AboutItemDAL>();
+builder.Services.AddScoped<IAboutItemService, AboutItemManager>();
+
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 // Add services to the container.
