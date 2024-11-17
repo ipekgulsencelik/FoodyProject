@@ -24,6 +24,9 @@ builder.Services.AddScoped<IAboutService, AboutManager>();
 builder.Services.AddScoped<IAboutItemDAL, AboutItemDAL>();
 builder.Services.AddScoped<IAboutItemService, AboutItemManager>();
 
+builder.Services.AddScoped<IFeatureDAL, FeatureDAL>();
+builder.Services.AddScoped<IFeatureService, FeatureManager>();
+
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 // Add services to the container.
