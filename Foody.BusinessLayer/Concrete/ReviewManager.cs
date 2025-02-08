@@ -4,7 +4,7 @@ using Foody.EntityLayer.Concrete;
 
 namespace Foody.BusinessLayer.Concrete
 {
-    internal class ReviewManager : IReviewService
+    public class ReviewManager : IReviewService
     {
         private readonly IReviewDAL _reviewDAL;
 
